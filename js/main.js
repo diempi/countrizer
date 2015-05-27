@@ -5,11 +5,21 @@
 */
 
 // Variables 
-var countriesTab = [];
+var countriesTab = [],
+    sApiUrl = 'https://restcountries.eu/rest/v1/all';
 
 // Methods
-function getCountries(){
-	$.getJSON('https://restcountries.eu/rest/v1/all');
-	console.log(data);
+function getCountries(sApiUrl){
+      $.ajax({
+              url:sApiUrl,
+              dataType: 'jsonp',
+              success: function(data){
+                console.log(data);
+            },
+            error: function(){
+                console.log('erreur');
+            }
+          });
 }
 
+$("#countryList").click(getCountries);
