@@ -12,25 +12,43 @@
 	"use strict";
 
 	// Variables 
-	var sApiUrl = 'https://restcountries.eu/rest/v1/all';
+	var sApiUrl = 'https://restcountries.eu/rest/v1/all',
+		countriesTab = [];
 
 	// Methods
 	function getCountries(){
-	      $.ajax({
-	            url: sApiUrl,
-	            type: 'GET',
-	            async: false,
-        		dataType: 'json',
-	            success: function(data){
 
-	                 var aCountriesData = data,
-	                 countriesTab = [];
-	                 for (var i = 0; i < aCountriesData.length; i++) {
-	                 	countriesTab[i] = aCountriesData[i].name;
-	                 }
-	                //$("#countries").append(countriesTab);
-	            }
-	          });
+		// GET Text state
+		//$("#countryList")[0].childNodes[0].nodeValue == "ROLL")
+				// Remove tthe content of the countries DIV Container
+				$("#countries").children("p").remove();
+				// Change button text
+				$("#countryList").text("STOP");
+
+				// Build the datas
+			      $.ajax({
+			            url: sApiUrl,
+			            type: 'GET',
+			            async: false,
+		        		dataType: 'json',
+			            success: function(data){
+
+			                 var aCountriesData = data;
+			                 for (var i = 0; i < aCountriesData.length; i++) {
+			                 	countriesTab[i] = aCountriesData[i].name;
+			                 }
+			                
+			            }
+			          });
+
+			    // Display one countrie randomly
+			    var sCountry = countriesTab[Math.floor(Math.random() * countriesTab.length)];
+			    $("#countries").append("<p>"+sCountry+"</p>");
+
+			    // Reset the text
+			    $("#countryList").text("ROLL");
+
+	    //
 	}
 
 
