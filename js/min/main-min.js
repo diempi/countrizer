@@ -1,0 +1,1 @@
+!function($){"use strict";function t(){$.ajax({url:n,type:"GET",async:!1,dataType:"json",success:function(t){for(var n=t,s=[],c=0;c<n.length;c++)s[c]=n[c].name}})}var n="https://restcountries.eu/rest/v1/all";$("#countryList").click(t)}(jQuery);
