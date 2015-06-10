@@ -23,7 +23,7 @@
 				// Remove tthe content of the countries DIV Container
 				$("#countries").children("p").remove();
 				// Change button text
-				$("#countryList").text("STOP");
+				$("#countryList").text("ROLLING...");
 
 				// Build the datas
 			      $.ajax({
