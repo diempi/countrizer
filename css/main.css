@@ -97,6 +97,9 @@ textarea {
 body {
     background-image: url('./../img/ctbackground.jpg');
     background-size: cover;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 
