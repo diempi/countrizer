@@ -94,6 +94,12 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+    background-image: url('./../img/ctbackground.jpg');
+    background-size: cover;
+}
+
+
 #main{
     width: 90%;
     margin: 0 auto;
