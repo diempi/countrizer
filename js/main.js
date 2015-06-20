@@ -16,7 +16,9 @@
 		countriesTab = [];
 
 	// Methods
+
 	function getCountries(){
+		
 
 		// GET Text state
 		//$("#countryList")[0].childNodes[0].nodeValue == "ROLL")
@@ -32,10 +34,12 @@
 			            async: false,
 		        		dataType: 'json',
 			            success: function(data){
-
-			                 var aCountriesData = data;
+							 
+			                 var aCountriesData = data,
+			                 userLang;
+			                 userLang = (navigator.language || navigator.userLanguage) ? (navigator.language || navigator.userLanguage) : 'en';
 			                 for (var i = 0; i < aCountriesData.length; i++) {
-			                 	countriesTab[i] = aCountriesData[i].name;
+			                 	countriesTab[i] = aCountriesData[i].translations[userLang];
 			                 }
 			                
 			            }
@@ -53,6 +57,7 @@
 
 
 	// Main code
+
 	$("#countryList").click(getCountries);
 
 
